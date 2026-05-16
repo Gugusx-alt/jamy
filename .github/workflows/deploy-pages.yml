@@ -26,7 +26,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
 
       - run: npm ci
@@ -36,7 +36,8 @@ jobs:
           VITE_BASE_URL: /${{ github.event.repository.name }}/
         run: npm run build
 
-      - uses: actions/upload-pages-artifact@v3
+      # deploy-pages@v5 exige artefato via upload-artifact v4+ (v3 do upload-pages-artifact não serve).
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
