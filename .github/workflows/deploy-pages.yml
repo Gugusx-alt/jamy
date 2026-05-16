@@ -12,6 +12,8 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  # Precisa poder registrar/listar artefatos entre jobs (`upload-pages-artifact` + `deploy-pages`).
+  actions: write
 
 # Igual aos starters oficiais: não cancelar deploy em andamento.
 concurrency:
@@ -47,6 +49,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      actions: read
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
