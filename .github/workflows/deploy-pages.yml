@@ -1,3 +1,6 @@
+# Antes do primeiro deploy: Settings → Pages → Source = GitHub Actions.
+# (Sem isso, o job "deploy" pode falhar com 404 — não é problema do Vite.)
+
 name: Deploy to GitHub Pages
 
 on:
@@ -20,9 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
 
       - uses: actions/setup-node@v4
         with:
