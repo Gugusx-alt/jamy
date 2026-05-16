@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen antialiased text-ink bg-cream font-sans font-medium overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-accent/25 text-ink;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-br from-ink via-accent to-violet bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply border border-white/90 bg-white/55 shadow-card backdrop-blur-xl;
+  }
+}
